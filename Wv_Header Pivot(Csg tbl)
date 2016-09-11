@@ -39,8 +39,8 @@ FROM
 
 		FROM dbo.wvt_wvwellheader wh
 
-		Join dbo.wvt_wvcas csg on wh.idwell=csg.idwell  -- join csg table
-		--join dbo.wvt.
+		Join dbo.wvt_wvcas csg on wh.idwell=csg.idwell					-- join csg table
+		join [dbo].[wvt_wvJobDrillBit] bit on wh.idwell=bit.idwell		-- join bit table
 	
 
 		WHERE wh.dttmspud >= @query_Date
