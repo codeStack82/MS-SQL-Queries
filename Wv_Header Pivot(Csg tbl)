@@ -1,12 +1,9 @@
-DECLARE @query_district VARCHAR(50) = '';
+DECLARE @query_district VARCHAR(50) = 'Utica';
 DECLARE @query_Date Date = '2011-01-01';
 DECLARE @query_division VARCHAR(50) = '';
 DECLARE @query_pn VARCHAR(50) = '';
 DECLARE @query_county VARCHAR(50) = '';
 DECLARE @query_wellname VARCHAR(50) = '';
-
---Query for Casing Information
---Some Wellheader information included
 
 SELECT 
 	idwell as [idwell],
