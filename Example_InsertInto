@@ -1,0 +1,44 @@
+With CTE_Remarks
+As
+(
+	Select Distinct
+	dateadd(mi, datediff(mi,1,rmk.DATETIME),1) as [RoundTimeRMK]
+	,REMARKS	
+	From [dbo].[timeLog657892Wellbore1RemarkLog1] RMK
+	--Where DATETIME > '2016-07-15 11:41:55' and DATETIME < '2016-07-29 07:01:45'
+),
+ TL_Data
+As
+(
+	Select distinct
+	dateadd(mi, datediff(mi,1,TL.DATETIME),1) as [RoundTimeTL]
+	,ActiveTankVolume as [Mud Volume]
+	,tl.Depth as Depth
+	,tl.RIG_STATE
+	From [dbo].[timeLog657892Wellbore1TimeLog1] TL
+	--Where ActiveTankVolume != -999.2500 and Depth > 8750
+)
+
+Select 
+	 TL.RoundTimeTL as [Date Time]
+	,TL.Depth
+	,TL.[Mud Volume]
+	,TL.RIG_STATE
+	,rmk.REMARKS
+from TL_Data TL
+Left join CTE_Remarks rmk on TL.RoundTimeTL=rmk.RoundTimeRMK
+order by Tl.RoundTimeTL
+	
+
+
+
+--Select *
+--From [dbo].[timeLog657892Wellbore1TimeLog1] tl
+
+--Select *
+	
+--From [dbo].[timeLog657892Wellbore1RemarkLog1] RMK
+
+--Where DATETIME > '2016-07-15 11:41:55' and DATETIME < '2016-07-29 07:01:45'
+
+--2016-07-15 05:57:10.000
