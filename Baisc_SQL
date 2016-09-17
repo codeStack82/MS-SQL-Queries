@@ -1,0 +1,27 @@
+--Casic Create Database
+  Create Database Test_DB
+  GO
+
+--Basic Drop Database
+--  Drop Database StepTest_DB
+--  -Go
+
+--Basic Create Table in DB
+Create Table Test_Table
+	(
+		TestID int not null Primary Key,
+		Hkld int not Null,
+		Tq int not null
+
+	)
+	GO
+
+--Basic Insert Statement
+  Insert [dbo].[Test_Table] (TestId) 
+	values(56454)
+	Go
+
+--Basic query table results
+Select *
+from [dbo].[StepTest_Table]
+
